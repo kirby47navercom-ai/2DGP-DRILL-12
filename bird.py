@@ -21,7 +21,9 @@ class Bird:
         self.image_x = 918
         self.image_y = 516
         self.x = 100
-        self.y = random.randint(400, 600)
+        self.y = random.randint(300, 500)
+        self.size_x=173
+        self.size_y=162
         self.frame=0
 
     def update(self):
@@ -30,6 +32,6 @@ class Bird:
         pass
 
     def draw(self):
-        self.image.clip_composite_draw(int(self.frame)%5 * int(self.image_x/5),(2-int(self.frame) // 5) *int(self.image_y/3)-10, int(self.image_x/5)-5, int(self.image_y/3),0,'', 200, 100,100,100)
-
+        self.image.clip_composite_draw(int(self.frame)%5 * int(self.image_x/5),(2-int(self.frame) // 5) *int(self.image_y/3), int(self.image_x/5)-5, int(self.image_y/3)-10,0,'', self.x, self.y,100,100)
+        print(int(self.image_x/5))
 
