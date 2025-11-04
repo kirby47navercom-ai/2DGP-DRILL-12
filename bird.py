@@ -1,5 +1,7 @@
 from pico2d import *
+import random
 
+import game_framework
 
 PIXEL_PER_METER = (10.0 / 0.3) # 10 pixel 30 cm
 RUN_SPEED_KMPH = 20.0 # Km / Hour
@@ -16,12 +18,16 @@ FRAMES_PER_ACTION = 8
 class Bird:
     def __init__(self):
         self.image = load_image('bird_animation.png')
+        self.x = 100
+        self.y = random.randint(400, 600)
+        self.frame=0
 
     def update(self):
+        self.frame = (self.frame + FRAMES_PER_ACTION * ACTION_PER_TIME * game_framework.frame_time) % 12
+
         pass
 
     def draw(self):
-        self.image.draw(400, 30)
-
+        self.image.clip_composite_draw(int(self.frame) * 100, 100, 100, 100,0,'', 200, 100,200,100)
 
 
