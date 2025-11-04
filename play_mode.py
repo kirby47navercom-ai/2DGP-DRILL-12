@@ -35,6 +35,7 @@ def init():
 def update():
     game_world.update()
 
+
 def draw():
     clear_canvas()
     game_world.render()
